@@ -1,0 +1,70 @@
+{
+  "Project": "Pampered Pets",
+  "Analysis": "Digitalized",
+  "Assets": [
+    {
+      "Name": "Store",
+      "Access": "Unsupervised Physical Access",
+      "Actors": {
+        "Inside": {
+          "Probability": 1
+        },
+        "Outside": {
+          "Probability": 1
+        }
+      },
+      "Motives": {
+        "Accidental": {
+          "Probability": 1
+        },
+        "Deliberate": {
+          "Probability": 1
+        }
+      },
+      "Outcomes": {
+        "Damage to Equipment": {
+          "Impact": 1
+        },
+        "Loss of Equipment": {
+          "Impact": 1
+        },
+        "Loss of Shelf/Warehouse Items": {
+          "Impact": 1
+        }
+      },
+      "Impossible": [
+        [
+          "Outside",
+          "Accidental"
+        ]
+      ]
+    },
+    {
+      "Name": "Customers",
+      "Access": "",
+      "Actors": {
+        "Online Shopping Trend": {
+          "Probability": 2
+        }
+      },
+      "Motives": {},
+      "Outcomes": {
+        "Load on email/pick system": {
+          "Impact": 2
+        },
+        "Less in-store customers": {
+          "Impact": 4
+        },
+        "More technology demand": {
+          "Impact": 2
+        },
+        "More competing prices": {
+          "Impact": 1
+        },
+        "More digital ads demand": {
+          "Impact": 7
+        }
+      }
+    }
+  ]
+}
