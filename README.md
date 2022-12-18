@@ -2,7 +2,7 @@
 
 <p align="center"> 
 
-This application is part of the final assessment of Information Security Management as part of PgDip in Computer science at the University of Essex Online. The goal of this application is to create threat profiles according to the OCTAVE-S risk assessment framework.
+This application was designed to support the process of generating threat profiles according to the OCTAVE-S risk assessment framework (Alberts & Dorofee, n.d; Alberts et al., 2005). After developing a risk analysis report, Cathy, the manager of the "Pampered Pets" store, was not convinced by the risk analysis report that compared the risk assessment of the status quo of her store to the one after digitalization. So there was a need for a visualization tool that would help her decide. A graphviz library, an open-source graph visualization library (The Graphviz Authors, n.d), was used to generate threat profiles using directed graphs. A qualitative assessment will also be possible using this application that generates a PI (Probability-Impact) score for each threat profile and a total PI score for the whole scenario. This number is valuable for comparison and decision-making. It was developed with the help of a risk assessment matrix (P. M. Training, 2022).
 </p>
 
 ## Table of Contents
@@ -22,7 +22,7 @@ This application is part of the final assessment of Information Security Managem
 
 ## About
 
- The application accepts JSON files that contain threat properties according to the OCTAVE-S framework (Alberts & Dorofee, n.d). Each JSON file could contain information about several threats to several assets in one scenario. The data that needs to be supplied in the JSON file contains Asset, Access (Optional), Actors, Motives (Optional) and Outcomes), along with probability and impact scores. The software will then generate threat profiles and calculate PI score for each threat profile, in addition to a total PI score for the scenario to allow comparison.
+The application accepts JSON file that contains threat properties according to the OCTAVE-S framework (Alberts & Dorofee, n.d). Each JSON file could contain information about several threats to several assets in one scenario. The data that needs to be supplied in the JSON file has Assets, Access (Optional), Actors, Motives (Optional), and Outcomes, along with probability and impact scores. The software will then generate threat profiles and calculate a PI score for each threat profile and a total PI score for the scenario to allow comparison.
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ Python 3 is needed to run this project.
 
 If you don't have python installed on your computer, follow this link to install it [python](https://www.python.org).
 
-You can check if you have python 3 installed by running the following command on the terminal (MacOS) or command prompt (Windows)
+You can check if you have python 3 installed by running the following command on the terminal (macOS) or command prompt (Windows)
 
 ```
 python --version
@@ -49,10 +49,10 @@ Python 3.11.1
 
 - Download the project folder [Threat-Profile](https://github.com/drmohammadatieh/Threat-Profile/archive/refs/heads/main.zip)
 
-- Open the terminal on MacOS or the command prompt on Windows 7/10.
+- Open the terminal on macOS or the command prompt on Windows 7/10.
 - Go to the directory that contains the project files. Example:
   
-  In MacOS:
+  In macOS:
   
   ```
   cd  Downloads/Threat-Profile-main/
@@ -89,9 +89,10 @@ Run the script
 
 ## Application instructions
 
-The application will process the JSON files located in the 'data' folder, generate threat profiles and PI (Probability-Impact)impact scores, and export them to the 'output' folder. The 'output' folder will contain other folders that have the names of the projects. Each project folder will contain other folders that have the names of the analyzed scenarios.
+The application will process the JSON files in the 'data' folder, generate threat profiles and PI (Probability-Impact)  scores, and export them to the 'output' folder. The 'output' folder will contain other folders with the projects’ names. Each project folder will contain other folders with the analyzed scenarios' names.
 
-Each output for each analysis is composed of different threat profiles, and a 'PI Score.txt' file will contain the PI score of each threat profile, in addition to total PI score for the scenario.
+Each output for each analysis is composed of different threat profiles, and a 'PI Score.txt' file will contain the PI score of each threat profile in addition to the total PI score for the scenario.
+
 
 <img src="images/output_folders.jpg" width="300">
   
@@ -121,11 +122,10 @@ The first category on the left is "Access". The Next one is the "Actors", follow
     - **Impossible** for an array of the impossible actor-motive and actor-motive-outcome combinations in array format that will be excluded from the processing. For example, ["Outside","Accidental"] means that the application will not connect an outside actor to an accidental motive during the threat profile generation process and PI score calculation.
   
 
-  
-
 ## Built Using
 
 - [Python 3.11.1](https://www.python.org) - Interpreted programming language.
+- [Graphviz](https://graphviz.org) - An open-source graph visualization software.
 
 ## Author
 
@@ -136,6 +136,13 @@ The first category on the left is "Access". The Next one is the "Actors", follow
 ## References
 
 Alberts, C. & Dorofee, A. (n.d) OCTAVE SM Threat Profiles. Available from: http://130.18.86.27/faculty/warkentin/SecurityPapers/Merrill/AlbertsDorofee_OCTAVEThreatProfiles.pdf [Accessed 27 November 2022].
+
+Alberts, C., Dorofee, A. & Stevens, J. (2005) OCTAVE ® -S Implementation Guide, Version 1.0. Available from: https://resources.sei.cmu.edu/asset_files/Handbook/2005_002_001_14273.pdf [Accessed 27 November 2022].
+
+P. M. Training (2022) Simple Risk Assessment Matrix Template & Excel Example. Available from: https://pm-training.net/risk-assessment-matrix/ [Accessed 28 November 2022].
+
+The Graphviz Authors (n.d) Graphviz. Available from: https://graphviz.org [Accessed 18 December 2022].
+
 
 
 

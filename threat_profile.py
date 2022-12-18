@@ -15,6 +15,13 @@ try:
 except FileNotFoundError:
     pass
 
+
+def pi_color():
+    """
+    A function that determines the color of the 
+        
+    """
+
 def generate_threat_profile(threat_data, analysis):
     """
     generate_threat_profile is a method that builds threat potfiles using graphviz library.
