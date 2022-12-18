@@ -121,9 +121,6 @@
         }
       },
       "Motives": {
-        "Accidental": {
-          "Probability": 1
-        },
         "Deliberate": {
           "Probability": 1
         }
@@ -139,16 +136,7 @@
           "Impact": 5
         }
       },
-      "Impossible": [
-        [
-          "Outside",
-          "Accidental"
-        ],
-        [
-          "Inside",
-          "Accidental"
-        ]
-      ]
+      "Impossible": []
     },
     {
       "Name": "Employees",

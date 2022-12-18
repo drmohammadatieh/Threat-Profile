@@ -37,10 +37,12 @@
           "Outside",
           "Accidental"
         ],
-        ["Inside","Accidental","Loss of Equipment"]
-
+        [
+          "Inside",
+          "Accidental",
+          "Loss of Equipment"
         ]
-      
+      ]
     },
     {
       "Name": "Customers",
@@ -66,51 +68,47 @@
         },
         "More Digital Ads Demand": {
           "Impact": 2
-        }}
-        ,
-         "Impossible": [
-        ]
-      }
-      ,
-      {
-        "Name": "Computers & Network - Physical",
-        "Access": "Unsupervised Physical Access",
-        "Actors": {
-          "Inside": {
-            "Probability": 0.5
-          },
-          "Outside": {
-            "Probability": 0.5
-          }
-        },
-        "Motives": {
-          "Accidental": {
-            "Probability": 1
-          },
-          "Deliberate": {
-            "Probability": 0.5
-          }
-        },
-        "Outcomes": {
-          "Physical Damage": {
-            "Impact": 5
-          },
-          "Data Loss": {
-            "Impact": 5
-          },
-          "Data Modification": {
-            "Impact": 5
-          }
-          }
-          ,
-           "Impossible": [
-            [
-              "Outside",
-              "Accidental"
-            ]
-          ]
         }
-    ,
+      },
+      "Impossible": []
+    },
+    {
+      "Name": "Computers & Network - Physical",
+      "Access": "Unsupervised Physical Access",
+      "Actors": {
+        "Inside": {
+          "Probability": 0.5
+        },
+        "Outside": {
+          "Probability": 0.5
+        }
+      },
+      "Motives": {
+        "Accidental": {
+          "Probability": 1
+        },
+        "Deliberate": {
+          "Probability": 0.5
+        }
+      },
+      "Outcomes": {
+        "Physical Damage": {
+          "Impact": 5
+        },
+        "Data Loss": {
+          "Impact": 5
+        },
+        "Data Modification": {
+          "Impact": 5
+        }
+      },
+      "Impossible": [
+        [
+          "Outside",
+          "Accidental"
+        ]
+      ]
+    },
     {
       "Name": "Computers & Network - Network",
       "Access": "Unsupervised Network Access",
@@ -123,9 +121,6 @@
         }
       },
       "Motives": {
-        "Accidental": {
-          "Probability": 1
-        },
         "Deliberate": {
           "Probability": 1
         }
@@ -139,46 +134,35 @@
         },
         "Data Disclosure": {
           "Impact": 5
-        }}
-        ,
-         "Impossible": [
-          [
-            "Outside",
-            "Accidental"
-          ],
-          [
-            "Inside",
-            "Accidental"
-          ]
-        ]
-      }
-      ,
-      {
-        "Name": "Employees",
-        "Access": "",
-        "Actors": {
-          "Circumstances": {
-            "Probability": 2
-          }
-        },
-        "Motives": {
-
-          "Expected": {
-            "Probability": 1
-          },
-          "Urgent": {
-            "Probability": 1
-          }
-        },
-        "Outcomes": {
-          "Temporary Leave": {
-            "Impact": 2
-          },
-          "Permanent Leave": {
-            "Impact": 4
-          }}
-          ,
-           "Impossible": []
         }
+      },
+      "Impossible": []
+    },
+    {
+      "Name": "Employees",
+      "Access": "",
+      "Actors": {
+        "Circumstances": {
+          "Probability": 2
+        }
+      },
+      "Motives": {
+        "Expected": {
+          "Probability": 1
+        },
+        "Urgent": {
+          "Probability": 1
+        }
+      },
+      "Outcomes": {
+        "Temporary Leave": {
+          "Impact": 2
+        },
+        "Permanent Leave": {
+          "Impact": 4
+        }
+      },
+      "Impossible": []
+    }
   ]
 }

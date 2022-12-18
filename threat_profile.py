@@ -11,7 +11,7 @@ import shutil
 
 # Remove old output
 try:
-    shutil.rmtree(os.getcwd() +"/Output")
+    shutil.rmtree(os.getcwd() +"/output")
 except FileNotFoundError:
     pass
 
@@ -124,13 +124,13 @@ def generate_threat_profile(threat_data, analysis):
 
 # Open threats_data json file and convert to python dictionary.
 try:
-    for json_file in list(glob.glob('Data/*.json')):
+    for json_file in list(glob.glob('data/*.json')):
         with open(json_file, encoding="UTF-8") as f:
             threats_data = json.load(f)
 
         # Sum of all threat profiles PIs
         total_pi_score = 0
-        foldername = "Output/" + \
+        foldername = "output/" + \
             threats_data['Project'] + "/" + threats_data['Analysis']
 
         # Iterate over each threat information and generate threat profiles and calculate PI scores

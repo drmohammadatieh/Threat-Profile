@@ -1,0 +1,6 @@
+Store PI score= 20
+Customers PI score= 6
+Computers & Network - Physical PI score= 15
+Computers & Network - Network PI score= 10
+Employees PI score= 12
+Total = 400
