@@ -2,8 +2,7 @@
 
 <p align="center"> 
 
-This application is designed for doctors surgery / clinic.
-
+This application is part of the final assessment of Information Security Management as part of PgDip in Computer science at the University of Essex Online. The goal of this application is to create threat profiles according to the OCTAVE-S risk assessment framework.
 </p>
 
 ## Table of Contents
@@ -25,7 +24,8 @@ This application is designed for doctors surgery / clinic.
 
 ## About
 
-This application is for doctors surgery/clinic. It provides a user-friendly command-line interface for registering patients, doctors and nurses. Also, it provides the ability to generate appointment schedules for doctors and nurses, reserve / cancel appointments for patients, write consultations and issue prescriptions. Object-Oriented programming methodology was used for this application according to a pre-established design as shown in the class diagram below. This programming methodology enables the representation of real-life objects/people. For example, patients, doctors and nurses were represented by a class for each; a Patient class for patients, A Doctor class for Doctors and a Nurse class for Nurses. Another important aspect is the need for adequate testing. Python Unit testing was used to test the most important functions like registering patients, saving data to and importing data from csv files, and finding next available appointment. In addition, dummy data was provided for user-testing most of which were generated using DumbData website (http://dumbdata.com/).
+ The application accepts json files that contain threat properties according to the OCTAVE-S framework (). Each json file could contain information about several threats in one scenario. The data that needs to be supplied in the json file contains Asset, Access, Actors, Motives and Outcomes), with Access and Motives being optional, along with probability and impact scores. The software will then generate threat profiles and calculate PI score for each threat profile, in addition to a total PI score for the scenario to allow comparison.
+
 
 <img src="images/Design.png" width="1000">
 

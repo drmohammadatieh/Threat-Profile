@@ -10,32 +10,37 @@
           "Probability": 1
         },
         "Outside": {
-          "Probability": 1
+          "Probability": 2
         }
       },
       "Motives": {
         "Accidental": {
-          "Probability": 1
+          "Probability": 2
         },
         "Deliberate": {
-          "Probability": 1
+          "Probability": 2
         }
       },
       "Outcomes": {
         "Damage to Equipment": {
-          "Impact": 1
+          "Impact": 4
         },
         "Loss of Equipment": {
-          "Impact": 1
+          "Impact": 5
         },
         "Loss of Shelf/Warehouse Items": {
-          "Impact": 1
+          "Impact": 5
         }
       },
       "Impossible": [
         [
           "Outside",
           "Accidental"
+        ],
+        [
+          "Inside",
+          "Accidental",
+          "Loss of Equipment"
         ]
       ]
     },
@@ -49,70 +54,61 @@
       },
       "Motives": {},
       "Outcomes": {
-        "Load on email/pick system": {
-          "Impact": 2
+        "Load on Email/Pick System": {
+          "Impact": 5
         },
-        "Less in-store customers": {
+        "Less In-Store Customers": {
+          "Impact": 5
+        },
+        "More Technology Demand": {
+          "Impact": 5
+        },
+        "More Competing Prices": {
           "Impact": 4
         },
-        "More technology demand": {
-          "Impact": 2
-        },
-        "More competing prices": {
-          "Impact": 1
-        },
-        "More digital ads demand": {
-          "Impact": 7
-        }}
-        ,
-         "Impossible": [
-        ]
-      }
-      ,
-      {
-        "Name": "Computers & Network - Physical",
-        "Access": "Unsupervised Physical Access",
-        "Actors": {
-          "Inside": {
-            "Probability": 1
-          },
-          "Outside": {
-            "Probability": 1
-          }
-        },
-        "Motives": {
-          "Accidental": {
-            "Probability": 1
-          },
-          "Deliberate": {
-            "Probability": 1
-          }
-        },
-        "Outcomes": {
-          "Load on email/pick system": {
-            "Impact": 2
-          },
-          "Less in-store customers": {
-            "Impact": 4
-          },
-          "More technology demand": {
-            "Impact": 2
-          },
-          "More competing prices": {
-            "Impact": 1
-          },
-          "More digital ads demand": {
-            "Impact": 7
-          }}
-          ,
-           "Impossible": [
-            [
-              "Outside",
-              "Accidental"
-            ]
-          ]
+        "More Digital Ads Demand": {
+          "Impact": 3
         }
-    ,
+      },
+      "Impossible": []
+    },
+    {
+      "Name": "Computers & Network - Physical",
+      "Access": "Unsupervised Physical Access",
+      "Actors": {
+        "Inside": {
+          "Probability": 2
+        },
+        "Outside": {
+          "Probability": 1
+        }
+      },
+      "Motives": {
+        "Accidental": {
+          "Probability": 1
+        },
+        "Deliberate": {
+          "Probability": 2
+        }
+      },
+      "Outcomes": {
+        "Physical Damage": {
+          "Impact": 5
+        },
+        "Data Loss": {
+          "Impact": 5
+        },
+        "Data Modification": {
+          "Impact": 5
+        }
+      },
+      "Impossible": [
+        [
+          "Outside",
+          "Accidental"
+        ]
+      ]
+    },
     {
       "Name": "Computers & Network - Network",
       "Access": "Unsupervised Network Access",
@@ -133,65 +129,52 @@
         }
       },
       "Outcomes": {
-        "Load on email/pick system": {
-          "Impact": 2
+        "Data Modification": {
+          "Impact": 5
         },
-        "Less in-store customers": {
-          "Impact": 4
+        "Data Loss": {
+          "Impact": 5
         },
-        "More technology demand": {
-          "Impact": 2
-        },
-        "More competing prices": {
-          "Impact": 1
-        },
-        "More digital ads demand": {
-          "Impact": 7
-        }}
-        ,
-         "Impossible": [
-          [
-            "Outside",
-            "Accidental"
-          ]
-        ]
-      }
-      ,
-      {
-        "Name": "Employees",
-        "Access": "",
-        "Actors": {
-          "Circumstances": {
-            "Probability": 2
-          }
-        },
-        "Motives": {
-
-          "Expected": {
-            "Probability": 1
-          },
-          "Urgent": {
-            "Probability": 1
-          }
-        },
-        "Outcomes": {
-          "Load on email/pick system": {
-            "Impact": 2
-          },
-          "Less in-store customers": {
-            "Impact": 4
-          },
-          "More technology demand": {
-            "Impact": 2
-          },
-          "More competing prices": {
-            "Impact": 1
-          },
-          "More digital ads demand": {
-            "Impact": 7
-          }}
-          ,
-           "Impossible": []
+        "Data Disclosure": {
+          "Impact": 5
         }
+      },
+      "Impossible": [
+        [
+          "Outside",
+          "Accidental"
+        ],
+        [
+          "Inside",
+          "Accidental"
+        ]
+      ]
+    },
+    {
+      "Name": "Employees",
+      "Access": "",
+      "Actors": {
+        "Circumstances": {
+          "Probability": 2
+        }
+      },
+      "Motives": {
+        "Expected": {
+          "Probability": 1
+        },
+        "Urgent": {
+          "Probability": 1
+        }
+      },
+      "Outcomes": {
+        "Temporary Leave": {
+          "Impact": 2
+        },
+        "Permanent Leave": {
+          "Impact": 4
+        }
+      },
+      "Impossible": []
+    }
   ]
 }
