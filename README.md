@@ -138,7 +138,7 @@ The outcome will be colour-coded according to the highest PI score. For example,
 PI scores of different scenarios can be compared by simply opening the output folders and viewing each analysis's 'PI score.txt'. The file name will contain the analysis's name for easier comparison.
 
 
-  <img src="images/PI_scores.jpg" width="300">
+  <img src="images/PI_scores.jpg" width="600">
 
 ## Built Using
 
