@@ -2,7 +2,7 @@
 
 <p align="center"> 
 
-This application was designed to support the process of generating threat profiles according to the OCTAVE-S risk assessment framework (Alberts & Dorofee, n.d; Alberts et al., 2005). After developing a risk analysis report, Cathy, the manager of the "Pampered Pets" store, was not convinced by the risk analysis report that compared the risk assessment of the status quo of her store to the one after digitalization. So there was a need for a visualization tool that would help her decide. A graphviz library, an open-source graph visualization library (The Graphviz Authors, n.d), was used to generate threat profiles using directed graphs. A qualitative assessment will also be possible using this application that generates a PI (Probability-Impact) score for each threat profile and a total PI score for the whole scenario. This number is valuable for comparison and decision-making. It was developed with the help of a risk assessment matrix (P. M. Training, 2022).
+This application was designed to support the process of generating threat profiles according to the OCTAVE-S risk assessment framework (Alberts & Dorofee, n.d; Alberts et al., 2005). After developing a risk analysis report, Cathy, the manager of the "Pampered Pets" store, was not convinced by the risk analysis report that compared the risk assessment of the status quo of her store to the one after digitalization. So there was a need for a visualization tool that would help her decide. A Graphviz library, an open-source graph visualization library (The Graphviz Authors, n.d), was used to generate threat profiles using directed graphs. A qualitative assessment will also be possible using this application that generates a PI (Probability-Impact) score for each threat profile and a total PI score for the whole scenario. This number is valuable for comparison and decision-making. It was developed with the help of a risk assessment matrix (P. M. Training, 2022).
 </p>
 
 ## Table of Contents
@@ -123,7 +123,7 @@ The outcome will be colour-coded according to the highest PI score. For example,
   -	**Actors**, for the actors. For example, inside or outside actors. Each one has a **Probability** attribute that will be used for calculating the PI score.
   -	**Motives**, for the motives. For example, accidental or deliberate. Each one has a **Probability** attribute as well.
   -	**Outcomes**, for the possible outcomes. Each has an **Impact** attribute that will be used for the **PI score** calculation.
-  -	**Impossible** for an array of the impossible actor-motive and actor-motive-outcome combinations in array format that will be excluded from the processing. For example, ["Outside","Accidental"] means that the application will not connect an outside actor to an accidental motive during the threat profile generation process and **PI score** calculation.
+  -	**Impossible** for an array of the impossible actor-motive and actor-motive-outcome combinations in array format that will be excluded from the processing. For example, ["Outside", "Accidental"] means that the application will not connect an outside actor to an accidental motive during the threat profile generation process and **PI score** calculation.
 
   
 
