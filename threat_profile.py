@@ -153,38 +153,38 @@ def generate_threat_profile(threat_data, analysis):
 
 
 # # Open threats_data json file and convert to python dictionary.
-# try:
-for json_file in list(glob.glob('data/*.json')):
-    with open(json_file, encoding="UTF-8") as f:
-        threats_data = json.load(f)
+try:
+    for json_file in list(glob.glob('data/*.json')):
+        with open(json_file, encoding="UTF-8") as f:
+            threats_data = json.load(f)
 
-    # Sum of all threat profiles PIs
-    total_pi_score = 0
-    foldername = "output/" + \
-        threats_data['Project'] + "/" + threats_data['Analysis']
+        # Sum of all threat profiles PIs
+        total_pi_score = 0
+        foldername = "output/" + \
+            threats_data['Project'] + "/" + threats_data['Analysis']
 
-    # Iterate over each threat information and generate threat profiles
-    # and calculate PI scores
-    for record in threats_data['Assets']:
-        threat_profile = generate_threat_profile(
-            record, threats_data['Analysis'])
-        filename = foldername + "/" + record['Name']
-        threat_profile[0].render(filename, format='pdf', view=True)
-        os.remove(filename)
-        total_pi_score += threat_profile[2]
+        # Iterate over each threat information and generate threat profiles
+        # and calculate PI scores
+        for record in threats_data['Assets']:
+            threat_profile = generate_threat_profile(
+                record, threats_data['Analysis'])
+            filename = foldername + "/" + record['Name']
+            threat_profile[0].render(filename, format='pdf', view=True)
+            os.remove(filename)
+            total_pi_score += threat_profile[2]
 
-        # Write the threat profile PI score to the 'PI scores.txt'
+            # Write the threat profile PI score to the 'PI scores.txt'
+            with open(foldername + "/" + threats_data['Analysis'] +
+                    ' PI scores.txt', 'a', encoding="UTF-8") as f:
+                line = record['Name'] + " PI score= " + \
+                    str(threat_profile[1]) + "\n"
+                f.write(line)
+
+        # Output the total PI score for each analysis to a text file
         with open(foldername + "/" + threats_data['Analysis'] +
-                  ' PI scores.txt', 'a', encoding="UTF-8") as f:
-            line = record['Name'] + " PI score= " + \
-                str(threat_profile[1]) + "\n"
+                ' PI scores.txt', 'a', encoding="UTF-8") as f:
+            line = "Total = " + str(total_pi_score)
             f.write(line)
 
-    # Output the total PI score for each analysis to a text file
-    with open(foldername + "/" + threats_data['Analysis'] +
-              ' PI scores.txt', 'a', encoding="UTF-8") as f:
-        line = "Total = " + str(total_pi_score)
-        f.write(line)
-
-# except:
-#    print("Please make sure to use a correct file format")
+except:
+   print("Please make sure to use a correct file format")

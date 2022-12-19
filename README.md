@@ -15,6 +15,7 @@ This application was designed to support the process of generating threat profil
 - [Application instructions](#application-instructions)
   - [Threat Profile Example](#threat-profile-example)
   - [JSON file structure](#json-file-structure)
+  - [Comparison of the Threat Profiles and PI scores](#comparison-of-the-threat-profiles-and-pi-scores)
 - [Built Using](#built-using)
 - [Author](#author)
 - [License MIT](#license-mit)
@@ -132,7 +133,12 @@ The outcome will be colour-coded according to the highest PI score. For example,
   -	**Outcomes**, for the possible outcomes. Each has an **Impact** attribute that will be used for the **PI score** calculation.
   -	**Impossible** for an array of the impossible actor-motive and actor-motive-outcome combinations in array format that will be excluded from the processing. For example, ["Outside", "Accidental"] means that the application will not connect an outside actor to an accidental motive during the threat profile generation process and **PI score** calculation.
 
-  
+### Comparison of the Threat Profiles and PI scores
+
+PI scores of different scenarios can be compared by simply opening the output folders and viewing each analysis's 'PI score.txt'. The file name will contain the analysis's name for easier comparison.
+
+
+  <img src="images/PI_scores.jpg" width="300">
 
 ## Built Using
 
