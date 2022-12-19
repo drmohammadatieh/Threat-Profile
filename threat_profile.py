@@ -16,11 +16,27 @@ except FileNotFoundError:
     pass
 
 
-def pi_color():
+def pi_color(p_i):
     """
-    A function that determines the color of the 
-        
+    A function that determines the color of the outcome node according to the value of the PI (Probability-Impact).
+    The color range is:
+    Gray (negligible) --> PI = 1-2
+    Green (Low) --> PI =  3-4
+    Yellow (Medium) --> PI = 5-9
+    Orange (High) --> PI = 10 -14
+    Red (Extreme) --> PI = 15-25
     """
+
+    if p_i <= 2:
+        return 'gray'
+    if p_i in [3,4]:
+        return 'green'
+    if p_i in range(5,10):
+        return 'yellow'
+    if p_i in range(10,15):
+        return 'orange'
+    if p_i >=15:
+        return 'red'
 
 def generate_threat_profile(threat_data, analysis):
     """
@@ -74,7 +90,7 @@ def generate_threat_profile(threat_data, analysis):
                         probability = threat_data['Actors'][actor]['Probability'] +\
                             threat_data['Motives'][motive]['Probability']
                         graph.edge(
-                            actor, motive, label=str(probability))
+                            actor, motive, label = "P = "+ str(probability))
 
                         # Then, connect motives to outcomes.
                         if threat_data['Outcomes'] and threat_data['Motives']:
@@ -90,14 +106,14 @@ def generate_threat_profile(threat_data, analysis):
 
                                 # Connect the actor, motive and outcome if the combination is possible.
                                 if not impossible:
-                                    graph.node(
-                                        outcome, shape="oval", color="orangered", style="filled")
-                                    # Calculate the PI (Probability * Impact) score for the combination.
+                                     # Calculate the PI (Probability * Impact) score for the combination.
                                     p_i = probability * \
                                         threat_data['Outcomes'][outcome]['Impact']
+                                    graph.node(
+                                        outcome, shape="oval", color=pi_color(p_i), style="filled")                           
                                     # Connect the motive to the outcome.
                                     graph.edge(motive, outcome,
-                                            label=str(p_i))
+                                            label = "PI = " +str(p_i))
                                     # Increment the total threat profile PI score (tp_pi_score).
                                     tp_pi_score += p_i
 
@@ -105,13 +121,13 @@ def generate_threat_profile(threat_data, analysis):
         if threat_data['Motives'] == {}:
             for actor in threat_data['Actors']:
                 for outcome in threat_data['Outcomes']:
-                    graph.node(outcome, shape="oval",
-                            color="orangered", style="filled")
-                    # Calculate the PI (Probability * Impact) score for the combination.
+                     # Calculate the PI (Probability * Impact) score for the combination.
                     p_i = threat_data['Actors'][actor]['Probability'] *\
                         threat_data['Outcomes'][outcome]['Impact']
+                    graph.node(outcome, shape="oval",
+                            color=pi_color(p_i), style="filled")
                     # Connect the actor to the outcome.
-                    graph.edge(actor, outcome, label=str(
+                    graph.edge(actor, outcome, label="PI = " + str(
                         p_i))
                     # Increment the total threat profile PI score (tp_pi_score).
                     tp_pi_score += p_i
@@ -129,35 +145,35 @@ def generate_threat_profile(threat_data, analysis):
         print("Please make sure to use a correct file format")
 
 
-# Open threats_data json file and convert to python dictionary.
-try:
-    for json_file in list(glob.glob('data/*.json')):
-        with open(json_file, encoding="UTF-8") as f:
-            threats_data = json.load(f)
+# # Open threats_data json file and convert to python dictionary.
+# try:
+for json_file in list(glob.glob('data/*.json')):
+    with open(json_file, encoding="UTF-8") as f:
+        threats_data = json.load(f)
 
-        # Sum of all threat profiles PIs
-        total_pi_score = 0
-        foldername = "output/" + \
-            threats_data['Project'] + "/" + threats_data['Analysis']
+    # Sum of all threat profiles PIs
+    total_pi_score = 0
+    foldername = "output/" + \
+        threats_data['Project'] + "/" + threats_data['Analysis']
 
-        # Iterate over each threat information and generate threat profiles and calculate PI scores
-        for record in threats_data['Assets']:
-            threat_profile = generate_threat_profile(
-                record, threats_data['Analysis'])
-            filename = foldername + "/" + record['Name']
-            threat_profile[0].render(filename, format='pdf', view=True)
-            os.remove(filename)
-            total_pi_score += threat_profile[2]
+    # Iterate over each threat information and generate threat profiles and calculate PI scores
+    for record in threats_data['Assets']:
+        threat_profile = generate_threat_profile(
+            record, threats_data['Analysis'])
+        filename = foldername + "/" + record['Name']
+        threat_profile[0].render(filename, format='pdf', view=True)
+        os.remove(filename)
+        total_pi_score += threat_profile[2]
 
-            # Write the threat profile PI score to the 'PI scores.txt'
-            with open(foldername + "/" + 'PI scores.txt', 'a', encoding="UTF-8") as f:
-                line = record['Name'] + " PI score= " + str(threat_profile[1]) + "\n"
-                f.write(line)
-
-        # Output the total PI score for each analysis to a text file
-        with open(foldername + "/" + 'PI scores.txt', 'a', encoding="UTF-8") as f:
-            line = "Total = " + str(total_pi_score)
+        # Write the threat profile PI score to the 'PI scores.txt'
+        with open(foldername + "/" + threats_data['Analysis'] + ' PI scores.txt', 'a', encoding="UTF-8") as f:
+            line = record['Name'] + " PI score= " + str(threat_profile[1]) + "\n"
             f.write(line)
 
-except:
-   print("Please make sure to use a correct file format")
+    # Output the total PI score for each analysis to a text file
+    with open(foldername + "/" + threats_data['Analysis'] + ' PI scores.txt', 'a', encoding="UTF-8") as f:
+        line = "Total = " + str(total_pi_score)
+        f.write(line)
+
+# except:
+#    print("Please make sure to use a correct file format")
